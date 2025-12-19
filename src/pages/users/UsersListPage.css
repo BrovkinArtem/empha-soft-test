@@ -1,0 +1,19 @@
+.users-list-page {
+  min-height: 100vh;
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+@media (max-width: 767px) {
+  .users-list-page {
+    padding: var(--spacing-md) 0;
+    min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .users-list-page {
+    padding: var(--spacing-lg) 0;
+  }
+}
+

@@ -1,0 +1,109 @@
+.user-list {
+  width: 100%;
+}
+
+.user-list--loading,
+.user-list--error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--spacing-lg);
+}
+
+.user-list__error-message {
+  color: var(--color-error);
+  text-align: center;
+}
+
+.user-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.user-list__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.user-list__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.user-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.user-list__empty {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--color-text-secondary);
+}
+
+.user-list__empty-hint {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 767px) {
+  .user-list__header {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .user-list__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .user-list__header button {
+    width: 100%;
+  }
+
+  .user-list__controls {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .user-list__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .user-list__empty {
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .user-list__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .user-list__title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .user-list__grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}

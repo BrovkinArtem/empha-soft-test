@@ -1,0 +1,101 @@
+.user-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.user-card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.user-card__info {
+  flex: 1;
+}
+
+.user-card__username {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.user-card__name {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.user-card__id {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.user-card__status {
+  margin-top: var(--spacing-sm);
+}
+
+.user-card__status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.user-card__status-badge.active {
+  background-color: #e8f5e9;
+  color: var(--color-success);
+}
+
+.user-card__status-badge.inactive {
+  background-color: #ffebee;
+  color: var(--color-error);
+}
+
+.user-card__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+@media (max-width: 767px) {
+  .user-card {
+    padding: var(--spacing-md);
+  }
+
+  .user-card__content {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .user-card__username {
+    font-size: var(--font-size-base);
+  }
+
+  .user-card__actions {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+
+  .user-card__actions button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .user-card {
+    padding: var(--spacing-md);
+  }
+}
+

@@ -1,0 +1,32 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: var(--spacing-md);
+}
+
+.login-page__content {
+  width: 100%;
+  max-width: 500px;
+}
+
+@media (max-width: 767px) {
+  .login-page {
+    padding: var(--spacing-sm);
+    align-items: flex-start;
+    padding-top: var(--spacing-xl);
+  }
+
+  .login-page__content {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .login-page {
+    padding: var(--spacing-md);
+  }
+}
+

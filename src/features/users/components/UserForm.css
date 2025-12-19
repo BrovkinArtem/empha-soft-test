@@ -1,0 +1,120 @@
+.user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.user-form--loading,
+.user-form--error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--spacing-lg);
+}
+
+.user-form__title {
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.user-form__error-message {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  background-color: #fee;
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+}
+
+.user-form .input-wrapper {
+  margin-bottom: var(--spacing-lg);
+}
+
+.user-form__checkbox {
+  margin-bottom: var(--spacing-lg);
+}
+
+.user-form__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.user-form__checkbox-input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.user-form__checkbox-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.user-form__actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.user-form__submit {
+  min-width: 150px;
+}
+
+@media (max-width: 767px) {
+  .user-form {
+    padding: var(--spacing-md);
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .user-form__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .user-form .input-wrapper {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .user-form__checkbox {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .user-form__actions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+  }
+
+  .user-form__actions button {
+    width: 100%;
+  }
+
+  .user-form__submit {
+    min-width: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .user-form {
+    padding: var(--spacing-lg);
+  }
+}
+

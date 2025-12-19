@@ -1,0 +1,23 @@
+.user-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.user-sort__button {
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .user-sort {
+    width: 100%;
+  }
+
+  .user-sort__button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
