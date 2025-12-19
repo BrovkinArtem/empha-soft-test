@@ -5,7 +5,7 @@ const getBaseUrl = () => {
   if (import.meta.env.DEV) {
     return "/api/v1/";
   }
-  return "https://test-assignment.emphasoft.com/api/v1/";
+  return "/api/proxy/";
 };
 
 const baseQuery = fetchBaseQuery({
@@ -29,43 +29,58 @@ export const apiSlice = createApi({
   tagTypes: ["User", "Auth"],
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (credentials) => ({
-        url: "login/",
-        method: "POST",
-        body: credentials,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }),
+      query: (credentials) => {
+        const isDev = import.meta.env.DEV;
+        return {
+          url: isDev ? "login/" : "?path=login/",
+          method: "POST",
+          body: credentials,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+      },
     }),
     getUsers: builder.query({
-      query: (params = {}) => ({
-        url: "users/",
-        params,
-      }),
+      query: (params = {}) => {
+        const isDev = import.meta.env.DEV;
+        return {
+          url: isDev ? "users/" : "?path=users/",
+          params,
+        };
+      },
       providesTags: ["User"],
     }),
 
     getUser: builder.query({
-      query: (id) => `users/${id}/`,
+      query: (id) => {
+        const isDev = import.meta.env.DEV;
+        return isDev ? `users/${id}/` : `?path=users/${id}/`;
+      },
       providesTags: (result, error, id) => [{ type: "User", id }],
     }),
 
     createUser: builder.mutation({
-      query: (user) => ({
-        url: "users/",
-        method: "POST",
-        body: user,
-      }),
+      query: (user) => {
+        const isDev = import.meta.env.DEV;
+        return {
+          url: isDev ? "users/" : "?path=users/",
+          method: "POST",
+          body: user,
+        };
+      },
       invalidatesTags: ["User"],
     }),
 
     updateUser: builder.mutation({
-      query: ({ id, ...user }) => ({
-        url: `users/${id}/`,
-        method: "PATCH",
-        body: user,
-      }),
+      query: ({ id, ...user }) => {
+        const isDev = import.meta.env.DEV;
+        return {
+          url: isDev ? `users/${id}/` : `?path=users/${id}/`,
+          method: "PATCH",
+          body: user,
+        };
+      },
       invalidatesTags: (result, error, { id }) => [
         { type: "User", id },
         "User",
@@ -73,10 +88,13 @@ export const apiSlice = createApi({
     }),
 
     deleteUser: builder.mutation({
-      query: (id) => ({
-        url: `users/${id}/`,
-        method: "DELETE",
-      }),
+      query: (id) => {
+        const isDev = import.meta.env.DEV;
+        return {
+          url: isDev ? `users/${id}/` : `?path=users/${id}/`,
+          method: "DELETE",
+        };
+      },
       invalidatesTags: ["User"],
     }),
   }),
