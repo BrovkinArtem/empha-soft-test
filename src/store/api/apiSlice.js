@@ -1,8 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getAuthToken } from "@/utils/cookies";
 
+const getBaseUrl = () => {
+  if (import.meta.env.DEV) {
+    return "/api/v1/";
+  }
+  return "https://test-assignment.emphasoft.com/api/v1/";
+};
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: "/api/v1/",
+  baseUrl: getBaseUrl(),
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = getAuthToken() || getState().auth.token;
